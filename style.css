@@ -2,7 +2,7 @@
     --moderate-magenta: hsl(176, 50%, 47%);
     --dark-cyan: hsl(176, 72%, 28%);
     --dark-gray: hsl(0, 0%, 48%);
-    --light-gray: rgb(241, 241, 241);
+    --light-gray: hsl(0, 0%, 95%);
 }
 *{
     margin:0;
@@ -42,7 +42,7 @@ body{
     background-size: contain;
     background-position: center;
     height: 20px;
-    width: 128px;
+    min-width: 128px;
     z-index:4;
 }
 .menu-icon{
@@ -96,6 +96,7 @@ body{
     background-color: white;
     border-radius: 7px;
     width: 90vw;
+    max-width: 1000px;
     margin: 0 auto 3vh;
 }
 .modal-card, .stats-section{
@@ -123,12 +124,18 @@ body{
     padding: .7rem 2.5rem;
     font-weight: bold;
 }
+.solid-button:hover{
+    background-color: var(--dark-cyan);
+}
 .bookmark::before{
     content: url(images/icon-bookmark.svg);
 }
 .bookmark{
     background: none;
     border: none;
+}
+.bookmark:hover::before{
+    filter: invert(34%) sepia(87%) saturate(412%) hue-rotate(127deg) brightness(95%) contrast(90%);
 }
 
 .stats-section{
@@ -196,7 +203,7 @@ body{
     color: black;
     font-size: 2rem;
     font-weight: bolder;
-    margin-right: 3vw;
+    margin-right: 2vw;
 }
 .stand-button{
     margin: 0 0 2vh 7vw;
@@ -225,8 +232,6 @@ body{
     transform: translateY(-5px);
 }
 
-
-/* To-Do */
 .modal, .success{
     box-shadow: 0 0 120px 30px black;
     display: none;
@@ -308,4 +313,43 @@ body{
 }
 .success p{
     text-align: center;
+}
+
+@media (min-width:720px) {
+    .all-stats{
+        display:flex;
+        justify-content:space-evenly;
+    }
+    .all-stats hr{
+        width: 0;
+        margin:0;
+    }
+    .menu-bar label{
+        display: none;
+    }
+    .hero{
+        background-image: url(images/image-hero-desktop.jpg);
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu-bar{
+        text-align: right;
+        width:55%;
+    }
+    .navbar{
+        background:none;
+        box-shadow: none;
+        display:block;
+        position:relative;
+        left:0;
+        top:0;
+        width:100%;
+    }
+    .navbar a{
+        background:none;
+        border:none;
+        color:white;
+        margin: 0 5px;
+        padding:0;
+    }
 }
